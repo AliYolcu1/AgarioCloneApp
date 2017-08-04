@@ -18,6 +18,7 @@ import view.GamePanel;
 
 public class GameLogic{
 
+	
 private boolean isGameRunning;
 private int xTarget;
 private int yTarget;
@@ -35,6 +36,12 @@ private GameFrame gameFrame;
 private GamePanel gamePanel;
 
 private Random random;
+
+/**
+ * @author Ali
+ * @param playerNick oyuncunun karakteri için seçtiði isim
+ * @param selectedColor oyuncunun, karakteri için seçtiði renk
+ */
 
 public GameLogic(String playerNick, Color selectedColor) {
 	player = new Player(10, 10, 20, 3, selectedColor, playerNick);
@@ -58,6 +65,13 @@ public GameLogic(String playerNick, Color selectedColor) {
 
 	addMouseEvents();
 }
+
+/**
+ *
+ * çakýþmalarýn kontrol edildiði method
+ * büyük olan küçük olaný yer
+ * çakýþmalarý rectangle methodu ile kontrol eder
+ */
 
 private synchronized void checkCollisions() {
 
@@ -112,6 +126,12 @@ private synchronized void checkCollisions() {
 	gameObjects.removeAll(enemiesToRemove);
 }
 
+/**
+ *Silinen nesnelerin yerine yenilerinin eklendiði method
+ *Silinen nesne kadar aynýsýndan ekler.
+ * 
+ */
+
 private synchronized void addNewObjects() {
 	fillChips(chipsToRemove.size());
 	fillMines(minesToRemove.size());
@@ -121,6 +141,10 @@ private synchronized void addNewObjects() {
 	minesToRemove.clear();
 	enemiesToRemove.clear();
 }
+
+/**
+ * karakterimizi hýzýna göre hareket ettirdiðimiz, yani koordinatýný deðiþtirdiðimiz method
+ */
 
 private synchronized void movePlayer() {
 	if (xTarget > player.getX()) {
@@ -135,6 +159,10 @@ private synchronized void movePlayer() {
 		player.setY(player.getY() - player.getSpeed());
 	}
 }
+
+/**
+ * rakip bizden büyük ise üzerimize doðru gelecek, küçük ise aramýzdaki mesafeyi sürekli olarak açmaya çalýþacak
+ */
 
 private synchronized void moveEnemies() {
 	for (GameObject gameObject : gameObjects) {
@@ -196,6 +224,11 @@ private boolean calculateNewDistanceToEnemy(Enemy enemy, int distance, int x, in
 	return false;
 }
 
+/**
+ * yemleri oluþturduðumuz yer
+ * @param n kaç tane yem yaratýlmak istendiðinin sayýsý
+ */
+
 private void fillChips(int n) {
 	for (int i = 0; i < n; i++) {
 		int x = random.nextInt(gamePanel.getWidth());
@@ -210,6 +243,11 @@ private void fillChips(int n) {
 	}
 }
 
+
+/**
+ * mayýnlarýn yaratýldýðý method
+ * @param n yaratýlmak istenen mayýn sayýsý
+ */
 private void fillMines(int n) {
 	for (int i = 0; i < n; i++) {
 
@@ -241,6 +279,11 @@ private void fillMines(int n) {
 	}
 }
 
+/**
+ * rakiplerin yaratýldýðý method
+ * @param n kaç adet rakip yaratýlacaðýnýn sayýsý
+ */
+
 private void fillEnemies(int n) {
 	for (int i = 0; i < n; i++) {
 		int x = random.nextInt(gamePanel.getWidth());
@@ -269,6 +312,11 @@ private void fillEnemies(int n) {
 	}
 }
 
+/**
+ * oyun çalýþtýðýnda gerçekleþecek olaylarýn akýþý
+ * thread kullanýlarak sürekli olarak ekrana yeniden çizdiriyoruz.
+ * 
+ */
 private void startGame() {
 	new Thread(new Runnable() {
 
@@ -289,6 +337,12 @@ private void startGame() {
 		}
 	}).start();
 }
+
+/**
+ * uygulama çalýþtýðýnda yaratýlacak ve yapýlacak iþlemlerin olduðu method
+ * mouse hareketleri dinlenerek karakterimizi hareket ettiriyoruz.
+ * 
+ */
 
 public void startApplication() {
 	gameFrame.setContentPane(gamePanel);

@@ -11,6 +11,8 @@ public class FirstFrame extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * oyun baþlamadan önce gelen form þeklindeki açýlýþ ekraný
+	 * 
 	 */
 	public static void main(String[] args) {
 		FirstFrame frame = new FirstFrame();

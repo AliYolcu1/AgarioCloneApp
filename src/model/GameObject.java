@@ -3,6 +3,11 @@ package model;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+/**
+ * yem, mayýn, rakip ve oyuncu sýnýflarýnýn ortak özelliklerini barýndýran üst sýnýf
+ * @author Ali
+ *
+ */
 
 public abstract class GameObject {
 
@@ -18,7 +23,10 @@ public abstract class GameObject {
 		this.radius = radius;
 		this.color = color;
 	}
-
+/**
+ * karakterin çizdirilmesi
+ * @param g2d çizimde kullanýlan deðiþken
+ */
 	public void draw(Graphics2D g2d) {
 		g2d.setColor(color);
 		

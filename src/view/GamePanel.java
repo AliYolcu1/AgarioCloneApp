@@ -17,7 +17,9 @@ public class GamePanel extends JPanel {
 		this.gameObjects = gameObjects;
 
 	}
-
+/**
+ * oyun içindeki nesnelerin çizdirildiði method
+ */
 	@Override
 	protected synchronized void paintComponent(Graphics arg0) {
 		super.paintComponent(arg0);

@@ -4,6 +4,11 @@ import javax.swing.JFrame;
 
 public class GameFrame extends JFrame {
 
+/**
+ * 640/480 boyutlarýnda oluþturduðumuz frame
+ * 
+ * @author Ali 
+ */
 	public GameFrame() {
 		setTitle("Agario Clone");
 		setResizable(true);

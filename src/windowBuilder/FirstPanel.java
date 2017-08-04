@@ -26,6 +26,8 @@ public class FirstPanel extends JPanel {
 	
 	/**
 	 * Create the panel.
+	 * Oyun öncesi açýlan form kýsmýnýn oluþturulmasý
+	 * @author Ali
 	 */
 	public FirstPanel() {
 		setLayout(new MigLayout("", "[][][grow]", "[][][][][][][][][][][]"));

@@ -3,7 +3,13 @@ package model;
 import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
-
+/**
+ * oyuncu karakteri sýnýfý
+ * oyuncunun ismini karakterinin üzerine yazdýrýyoruz
+ * 
+ * @author Ali
+ *
+ */
 public class Player extends GameObject {
 
 	private String playerNick;
